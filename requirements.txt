@@ -1,2 +1,59 @@
-PySimpleGUI==5.0.4
-requests==2.31.0
+# AKATSYKI VPN WIFI
+
+MVP Windows helper for Wi-Fi sharing and traffic routing with two modes:
+
+- Zapret mode: downloads and runs the public `zapret-discord-youtube` project.
+- Xray/VLESS mode: loads VLESS links or HTTPS subscription lists, checks ping, lets user select server, then runs Xray.
+- Wi-Fi hotspot support via Windows `netsh`.
+- DNS override support for Xbox or custom DNS.
+
+## Requirements
+
+- Windows 10 or 11
+- 64-bit system
+- Administrator rights
+- Wi-Fi adapter (built-in or USB)
+- Python 3.10+
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run
+
+```bash
+python app.py
+```
+
+Run as administrator if Windows prompts.
+
+## Features
+
+- Simple PySimpleGUI interface
+- Create hotspot with custom SSID and password
+- Select DNS mode: Xbox DNS / Google DNS / custom
+- Xray server list parsing from VLESS subscriptions
+- Ping checks for candidate servers
+- Autostart option
+- Logs saved to `logs/app.log`
+
+## Important notes
+
+This project is an MVP. It wraps public tools and does not replace the original zapret or xray implementations.
+
+- Zapret is fetched from the official GitHub release of `Flowseal/zapret-discord-youtube` when missing.
+- Xray is fetched from the official Xray-core release when missing.
+- The app is intended for local use and debugging, not as a formal production-grade VPN manager.
+
+## Build to EXE
+
+```bash
+pip install pyinstaller
+python build.py
+```
+
+## License
+
+MIT
